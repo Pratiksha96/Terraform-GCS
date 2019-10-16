@@ -7,20 +7,6 @@ resource "google_storage_bucket" "bucket" {
     labels = "${var.labels}"
     requester_pays = "${var.requester_pays}"
     bucket_policy_only = "${var.bucket_policy_only}"
-    
-    # lifecycle_rule {
-    #     action = {
-    #         type = "${var.type}" 
-    #         storage_class = "${var.storage_class}" 
-    #     }
-    #     condition = {
-    #         age = "${var.age}" 
-    #         created_before = "${var.created_before}" 
-    #         with_state = "${var.with_state}" 
-    #         matches_storage_class = "${var.matches_storage_class}" 
-    #         num_newer_versions = "${var.num_newer_versions}" 
-    #         }
-    #     }
 
     dynamic "lifecycle_rule" {
         for_each = [for rule in var.lifecycle_rules: {
