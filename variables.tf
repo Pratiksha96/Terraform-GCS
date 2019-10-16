@@ -58,7 +58,7 @@ variable "lifecycle_rules" {
     action = object({
       type = string
       storage_class = string
-    }),
+    })
     condition = object({
       age = number
       created_before = string
@@ -71,7 +71,7 @@ variable "lifecycle_rules" {
     action = {
       type = ""
       storage_class = ""
-    },
+    }
     condition = {
       age = 0
       created_before = ""

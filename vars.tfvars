@@ -2,21 +2,21 @@ project_id = "gcp-trial-254611"
 region = ""
 zone = ""
 key_file_path = "key.json"
-gcs_name = "firstBucket15102019"
-//force_destroy = ""
+gcs_name = "2019-10-16-second-bucket"
+force_destroy = false
 location = ""
 storage_class = ""
 lifecycle_rules = [{
     action = {
-        type = ""
+        type = "Delete"
         storage_class = ""
     },
     condition = {
-        age = 99999
         created_before = ""
+        age = 5
         with_state = ""
         matches_storage_class = ["STANDARD"]
-        num_newer_versions = 9999
+        num_newer_versions = 1
     }
 }]
 versioning_enabled = false
@@ -28,11 +28,11 @@ cors = [{
     response_header = []
     max_age_seconds = 9999
 }]
-//is_locked = false
-//retention_period = ""
+is_locked = false
+retention_period = 1
 labels = {}
 log_bucket = ""
 log_object_prefix = ""
 default_kms_key_name = ""
-//requester_pays = ""
-//bucket_policy_only = ""
+requester_pays = false
+bucket_policy_only = false
