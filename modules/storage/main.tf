@@ -72,3 +72,9 @@ resource "google_storage_bucket" "bucket" {
         default_kms_key_name = "${var.default_kms_key_name}"
     }
 }
+
+resource "google_storage_bucket_acl" "bucket_acl" {
+    bucket = "${google_storage_bucket.bucket.name}"
+    default_acl = "${var.default_acl}"
+    role_entity = "${var.role_entity}"
+}

@@ -130,12 +130,23 @@ variable "default_kms_key_name" {
 
 variable "requester_pays" {
   type = bool
-  description = ""
+  description = "Enables Requester Pays on a storage bucket."
   default = false
 }
 
 variable "bucket_policy_only" {
   type = bool
-  description = ""
+  description = "Enables Bucket Policy Only access to a bucket."
   default = false
+}
+
+variable "default_acl" {
+  description = "Configure this ACL to be the default ACL."
+  default = "projectPrivate"
+}
+
+variable "role_entity" {
+  type = "list"
+  description = "List of role/entity pairs in the form ROLE:entity."
+  default = []
 }

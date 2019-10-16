@@ -19,4 +19,6 @@ module "gcs-management" {
   default_kms_key_name = "${var.default_kms_key_name}"
   requester_pays = "${var.requester_pays}"
   bucket_policy_only = "${var.bucket_policy_only}"
+  role_entity = "${var.role_entity}"
+  default_acl = "${var.default_acl}"
 }
