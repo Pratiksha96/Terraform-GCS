@@ -137,16 +137,25 @@ variable "requester_pays" {
 variable "bucket_policy_only" {
   type = bool
   description = "Enables Bucket Policy Only access to a bucket."
-  default = false
+  default = true
 }
 
-variable "default_acl" {
-  description = "Configure this ACL to be the default ACL."
-  default = "projectPrivate"
-}
+# variable "default_acl" {
+#   description = "Configure this ACL to be the default ACL."
+#   default = "projectPrivate"
+# }
 
-variable "role_entity" {
-  type = "list"
-  description = "List of role/entity pairs in the form ROLE:entity."
+# variable "role_entity" {
+#   type = "list"
+#   description = "List of role/entity pairs in the form ROLE:entity."
+#   default = []
+# }
+
+variable "bucket_iam_permissions" {
+  type = list(object({
+    role = string
+    member = list(string)
+  }))  
+  description = "Roles and members for IAM permissions."
   default = []
 }

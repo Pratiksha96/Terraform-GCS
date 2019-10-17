@@ -175,3 +175,12 @@ variable "role_entity" {
   description = "List of role/entity pairs in the form ROLE:entity."
   default = []
 }
+
+variable "bucket_iam_permissions" {
+  type = list(object({
+    role = string
+    member = list(string)
+  }))
+  description = "Roles and members for IAM permissions."
+  default = []
+}

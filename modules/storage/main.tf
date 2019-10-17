@@ -73,8 +73,15 @@ resource "google_storage_bucket" "bucket" {
     }
 }
 
-resource "google_storage_bucket_acl" "bucket_acl" {
-    bucket = "${google_storage_bucket.bucket.name}"
-    default_acl = "${var.default_acl}"
-    role_entity = "${var.role_entity}"
+resource "google_storage_bucket_iam_binding" "bucket_binding" {
+    count = length(var.bucket_iam_permissions)
+    bucket = google_storage_bucket.bucket.name
+    role = var.bucket_iam_permissions[count.index].role
+    members = var.bucket_iam_permissions[count.index].member
 }
+
+# resource "google_storage_bucket_acl" "bucket_acl" {
+#     bucket = "${google_storage_bucket.bucket.name}"
+#     //default_acl = "${var.default_acl}"
+#     role_entity = "${var.role_entity}"
+# }

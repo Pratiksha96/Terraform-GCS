@@ -2,10 +2,10 @@ project_id = "gcp-trial-254611"
 region = ""
 zone = ""
 key_file_path = "key.json"
-gcs_name = "2019-10-16-second-bucket"
-force_destroy = false
+gcs_name = "2019-10-17-second-bucket"
+force_destroy = true
 location = "us"
-//storage_class = ""
+storage_class = "STANDARD"
 lifecycle_rules = [{
     action = {
         type = "Delete"
@@ -30,13 +30,14 @@ cors = [{
 }]
 is_locked = false
 retention_period = 1
-//labels = {}
+labels = {}
 log_bucket = ""
 log_object_prefix = ""
 default_kms_key_name = ""
 requester_pays = false
-bucket_policy_only = false
-role_entity = [
-    # "OWNER:demo-service-account-1@gcp-trial-254611.iam.gserviceaccount.com",
-    "WRITER:jainpratiksha2110@gmail.com"
-]
+bucket_policy_only = true
+bucket_iam_permissions = [{
+    role = "roles/storage.objectViewer"
+    member = ["serviceAccount:demo-service-account-1@gcp-trial-254611.iam.gserviceaccount.com"]
+}]
+//role_entity = ["OWNER:user-demo-service-account-1@gcp-trial-254611.iam.gserviceaccount.com",]
