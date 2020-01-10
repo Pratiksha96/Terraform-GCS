@@ -1,8 +1,8 @@
-project_id = "gcp-trial-254611"
+project_id = "gcp-trial"
 region = ""
 zone = ""
 key_file_path = "key.json"
-gcs_name = "2019-10-17-second-bucket"
+gcs_name = "second-bucket"
 force_destroy = true
 location = "us"
 storage_class = "STANDARD"
@@ -38,6 +38,6 @@ requester_pays = false
 bucket_policy_only = true
 bucket_iam_permissions = [{
     role = "roles/storage.objectViewer"
-    member = ["serviceAccount:demo-service-account-1@gcp-trial-254611.iam.gserviceaccount.com"]
+    member = ["serviceAccount:demo-service-account@gcp-trial.iam.gserviceaccount.com"]
 }]
-//role_entity = ["OWNER:user-demo-service-account-1@gcp-trial-254611.iam.gserviceaccount.com",]
+//role_entity = ["OWNER:user-demo-service-account@gcp-trial.iam.gserviceaccount.com",]
